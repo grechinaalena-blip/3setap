@@ -188,6 +188,38 @@
       max-width: 480px;
     }
 
+    .hero-cuisines {
+      display: flex;
+      gap: 10px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+
+    .hero-cuisine {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 100px;
+      padding: 8px 16px;
+    }
+
+    .hero-cuisine-flag {
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .hero-cuisine-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+      letter-spacing: 0.02em;
+    }
+
     /* ============================================
        SECTION HEADERS
        ============================================ */
@@ -1150,7 +1182,21 @@
   <div class="hero-content">
     <span class="hero-badge">Set-up</span>
     <h1>Три столицы</h1>
-    <p class="hero-subtitle">Одна куриная грудка. Три кухни мира. Ноль отходов.<br>Азия → Средиземноморье → Ближний Восток — за три вечера вы побываете в трёх кулинарных столицах, не выходя из кухни.</p>
+    <p class="hero-subtitle">Одна куриная грудка. Три кухни мира. Ноль отходов.<br>За три вечера вы побываете в трёх кулинарных столицах, не выходя из кухни.</p>
+    <div class="hero-cuisines">
+      <div class="hero-cuisine">
+        <span class="hero-cuisine-flag">🇬🇷</span>
+        <span class="hero-cuisine-name">Средиземноморье</span>
+      </div>
+      <div class="hero-cuisine">
+        <span class="hero-cuisine-flag">🇨🇳</span>
+        <span class="hero-cuisine-name">Азия</span>
+      </div>
+      <div class="hero-cuisine">
+        <span class="hero-cuisine-flag">🇱🇧</span>
+        <span class="hero-cuisine-name">Ближний Восток</span>
+      </div>
+    </div>
   </div>
 </section>
 

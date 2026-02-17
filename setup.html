@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Система Set-up — ЩиБорщи</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================
+       RESET & BASE
+       ============================================ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --linen: #f5f3ed;
+      --white: #ffffff;
+      --graphite: #2a2a2a;
+      --graphite-soft: #4a4a4a;
+      --text-body: #3d3d3d;
+      --text-secondary: #7a7a7a;
+      --text-muted: #aaa;
+      --sage: #7d8b6e;
+      --sage-dark: #5f6d51;
+      --sage-light: #e9ede4;
+      --sage-pale: #f0f2ec;
+      --terracotta: #c0855c;
+      --terracotta-light: #f4e8dc;
+      --border: rgba(42, 42, 42, 0.07);
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.03);
+      --shadow-md: 0 4px 24px rgba(0,0,0,0.05);
+      --shadow-lg: 0 12px 48px rgba(0,0,0,0.08);
+      --radius: 14px;
+      --radius-lg: 22px;
+    }
+
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+    body {
+      font-family: 'Lora', Georgia, 'Times New Roman', serif;
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text-body);
+      background: var(--linen);
+    }
+
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: var(--sage-dark); text-decoration: none; }
+    strong { font-weight: 600; color: var(--graphite); }
+
+    /* ============================================
+       TYPOGRAPHY
+       ============================================ */
+    h1, h2, h3, h4,
+    .heading-font { font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif; }
+
+    .label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sage);
+    }
+
+    /* ============================================
+       LAYOUT
+       ============================================ */
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .container-wide {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      padding: 64px 0;
+    }
+
+    .divider {
+      width: 48px;
+      height: 1.5px;
+      background: var(--sage);
+      opacity: 0.4;
+      margin: 0 auto;
+    }
+
+    /* ============================================
+       SCROLL ANIMATIONS
+       ============================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================
+       SECTION HEADER
+       ============================================ */
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-header .label {
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .section-header h2 {
+      font-size: clamp(24px, 5vw, 32px);
+      font-weight: 700;
+      color: var(--graphite);
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+
+    .section-header p {
+      margin-top: 12px;
+      color: var(--text-secondary);
+      font-size: 16px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ============================================
+       HERO
+       ============================================ */
+    .hero {
+      position: relative;
+      min-height: 85vh;
+      display: flex;
+      align-items: flex-end;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(42,42,42,0.78) 0%, rgba(42,42,42,0.2) 50%, transparent 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 24px 56px;
+      max-width: 680px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 7vw, 48px);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-subtitle {
+      font-size: 17px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.82);
+      max-width: 500px;
+    }
+
+    .hero-cta {
+      margin-top: 28px;
+    }
+
+    /* ============================================
+       CTA BUTTON
+       ============================================ */
+    .cta-btn {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+      background: var(--sage);
+      padding: 14px 36px;
+      border-radius: 100px;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: background 0.2s ease, transform 0.15s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .cta-btn:hover {
+      background: var(--sage-dark);
+      color: var(--white);
+      transform: translateY(-1px);
+    }
+
+    .cta-btn-hero {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #fff;
+    }
+
+    .cta-btn-hero:hover {
+      background: rgba(255,255,255,0.25);
+      color: #fff;
+    }
+
+    .cta-widget-placeholder {
+      text-align: center;
+      margin-top: 32px;
+    }
+
+    /* ============================================
+       PHOTO PLACEHOLDER
+       ============================================ */
+    .photo-placeholder {
+      background: var(--sage-pale);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 220px;
+      border: 1.5px dashed rgba(125, 139, 110, 0.25);
+    }
+
+    .photo-placeholder span {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+      text-align: center;
+      padding: 24px;
+    }
+
+    /* ============================================
+       TEXT BLOCK
+       ============================================ */
+    .text-block {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .text-block p {
+      margin-bottom: 16px;
+    }
+
+    .text-block p:last-child {
+      margin-bottom: 0;
+    }
+
+    .text-accent {
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--graphite);
+      font-style: italic;
+    }
+
+    /* ============================================
+       STEPS (3 columns)
+       ============================================ */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .step-block {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .step-block-photo {
+      height: 180px;
+      overflow: hidden;
+    }
+
+    .step-block-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .step-block-body {
+      padding: 20px;
+    }
+
+    .step-block-number {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 8px;
+    }
+
+    .step-block-body h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--graphite);
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .step-block-body p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    /* ============================================
+       DISH CARDS (3 dishes)
+       ============================================ */
+    .dish-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .dish-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      display: grid;
+      grid-template-columns: 260px 1fr;
+    }
+
+    .dish-photo {
+      overflow: hidden;
+    }
+
+    .dish-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .dish-body {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .dish-region {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 8px;
+    }
+
+    .dish-body h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--graphite);
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .dish-body p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ============================================
+       FEATURE LIST (what's inside)
+       ============================================ */
+    .feature-list {
+      list-style: none;
+      margin-top: 32px;
+    }
+
+    .feature-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 15px;
+      padding-left: 24px;
+      position: relative;
+    }
+
+    .feature-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--sage);
+      font-weight: 600;
+    }
+
+    /* ============================================
+       PRODUCT FLOW
+       ============================================ */
+    .product-flow {
+      list-style: none;
+    }
+
+    .product-flow li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .product-flow li:last-child {
+      border-bottom: none;
+    }
+
+    /* ============================================
+       STATS GRID
+       ============================================ */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .stat-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 28px 20px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .stat-number {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(28px, 5vw, 36px);
+      font-weight: 700;
+      color: var(--sage);
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
+
+    /* ============================================
+       AUDIENCE (for/not for)
+       ============================================ */
+    .audience-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .audience-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .audience-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--graphite);
+      margin-bottom: 16px;
+    }
+
+    .audience-card.yes { border-top: 3px solid var(--sage); }
+    .audience-card.no { border-top: 3px solid var(--terracotta); }
+
+    .audience-card ul {
+      list-style: none;
+    }
+
+    .audience-card ul li {
+      padding: 6px 0;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .audience-card.yes ul li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--sage);
+      font-weight: 600;
+    }
+
+    .audience-card.no ul li::before {
+      content: '✗';
+      position: absolute;
+      left: 0;
+      color: var(--terracotta);
+      font-weight: 600;
+    }
+
+    /* ============================================
+       FAQ ACCORDION
+       ============================================ */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .faq-item {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 24px;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--graphite);
+      border: none;
+      background: none;
+      width: 100%;
+      text-align: left;
+      line-height: 1.4;
+    }
+
+    .faq-question::after {
+      content: '+';
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--sage);
+      flex-shrink: 0;
+      margin-left: 16px;
+      transition: transform 0.2s ease;
+    }
+
+    .faq-item.open .faq-question::after {
+      content: '−';
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+    }
+
+    .faq-answer-inner {
+      padding: 0 24px 20px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* ============================================
+       TRIPTYCH (3 photos)
+       ============================================ */
+    .triptych {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 32px 0;
+    }
+
+    .triptych img {
+      border-radius: var(--radius);
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    /* ============================================
+       CLOSING CTA
+       ============================================ */
+    .closing-section {
+      text-align: center;
+      padding: 48px 0 64px;
+    }
+
+    .closing-section h2 {
+      font-size: clamp(22px, 4.5vw, 30px);
+      font-weight: 700;
+      color: var(--graphite);
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+
+    .closing-section p {
+      color: var(--text-secondary);
+      font-size: 16px;
+      max-width: 480px;
+      margin: 0 auto 32px;
+    }
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+    footer {
+      text-align: center;
+      padding: 48px 24px 56px;
+    }
+
+    footer .divider { margin-bottom: 32px; }
+
+    footer .brand {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--graphite);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    footer .tagline {
+      font-size: 14px;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* ============================================
+       RESPONSIVE
+       ============================================ */
+    @media (max-width: 768px) {
+      section { padding: 48px 0; }
+      .container-wide { padding: 0 18px; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .dish-card { grid-template-columns: 1fr; }
+      .dish-photo { height: 200px; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .audience-grid { grid-template-columns: 1fr; }
+      .triptych img { height: 140px; }
+    }
+
+    @media (max-width: 480px) {
+      .stats-grid { grid-template-columns: 1fr; }
+      .triptych { grid-template-columns: 1fr; gap: 8px; }
+      .triptych img { height: 200px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================
+     1. HERO
+     ============================================ -->
+<section class="hero">
+  <div class="hero-image">
+    <img src="Фото : Сет 3 столицы/0.3 Обложка.png" alt="Три тарелки сета — Азия, Средиземноморье, Ближний Восток">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-badge">Set-up</span>
+    <h1>Три блюда. Один список. Ноль лишнего.</h1>
+    <p class="hero-subtitle">Система Set-up — это готовый план на неделю: что купить, как приготовить и куда пойдёт каждый продукт. Вы покупаете один раз — и получаете три совершенно разных блюда.</p>
+    <div class="hero-cta">
+      <!-- GetCourse widget -->
+      <a href="#get-set" class="cta-btn cta-btn-hero">Попробовать бесплатно</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================
+     2. ЗНАКОМАЯ СИТУАЦИЯ
+     ============================================ -->
+<section>
+  <div class="container">
+    <div class="text-block reveal">
+      <p>Шесть вечера. Вы стоите перед открытым холодильником и пытаетесь собрать из того что есть хоть что-то осмысленное на ужин. Помидоры вчера подвяли. Половина пучка петрушки пожелтела. Куриная грудка лежит третий день, и вы не уверены, что ей ещё можно доверять.</p>
+      <p class="text-accent">Знакомо?</p>
+      <p>Проблема не в том, что вы не умеете готовить. Проблема — в вечном вопросе «а что приготовить?». Он отнимает больше сил, чем сама готовка.</p>
+    </div>
+    <div class="reveal" style="margin-top: 32px;">
+      <div class="photo-placeholder">
+        <span>Фото: открытый холодильник с разрозненными остатками продуктов</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================
+     3. ЧТО ТАКОЕ SET-UP
+     ============================================ -->
+<section>
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Система</span>
+      <h2>Мы забрали себе самую скучную часть</h2>
+    </div>
+    <div class="text-block reveal">
+      <p>Set-up — это система от школы ЩиБорщи. Мы берём на себя планирование, а вы — только удовольствие от процесса.</p>
+      <p>Каждый сет — это 3 блюда, связанных между собой одной логикой ингредиентов. Покупаете один компактный список продуктов — и они <em>перетекают</em> из блюда в блюдо. Пучок петрушки уходит в три рецепта. Банка маслин — в два. Упаковка брынзы расходуется целиком.</p>
+      <p>Ничего не гниёт. Ничего не выбрасывается. А на выходе — три блюда с разными вкусами, как будто вы каждый вечер ходили в новый ресторан.</p>
+    </div>
+    <div class="reveal" style="margin-top: 32px;">
+      <div class="photo-placeholder">
+        <span>Инфографика: один продукт → стрелки к трём тарелкам</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================
+     4. КАК ЭТО РАБОТАЕТ (3 шага)
+     ============================================ -->
+<section>
+  <div class="container-wide">
+    <div class="section-header reveal">
+      <span class="label">Три шага</span>
+      <h2>Как это работает</h2>
+    </div>
+    <div class="steps-grid reveal">
+      <div class="step-block">
+        <div class="step-block-photo">
+          <div class="photo-placeholder" style="min-height: 180px; border-radius: 0;">
+            <span>Скриншот: таблица списка покупок</span>
+          </div>
+        </div>
+        <div class="step-block-body">
+          <div class="step-block-number">Шаг 1</div>
+          <h3>Получаете сет</h3>
+          <p>Готовый план: 3 блюда + единый список покупок + пошаговые инструкции с граммовками. Один поход в магазин — и вы обеспечены на три дня.</p>
+        </div>
+      </div>
+      <div class="step-block">
+        <div class="step-block-photo">
+          <img src="Фото : Сет 3 столицы/3.1 | .png" alt="Нарезка зелени на доске">
+        </div>
+        <div class="step-block-body">
+          <div class="step-block-number">Шаг 2</div>
+          <h3>Готовите — быстро</h3>
+          <p>Два сценария на выбор: всё за раз (~65 минут) или по одному блюду в день (~20 минут вечером). Всё расписано.</p>
+        </div>
+      </div>
+      <div class="step-block">
+        <div class="step-block-photo">
+          <img src="Фото : Сет 3 столицы/2.4 — ФИНАЛ У2.png" alt="Финальная подача">
+        </div>
+        <div class="step-block-body">
+          <div class="step-block-number">Шаг 3</div>
+          <h3>Едите — вкусно</h3>
+          <p>Три дня, три разных вкуса. Кухня не повторяется. К концу третьего дня холодильник чист — и никакого чувства вины.</p>
+        </div>
+      </div>
+    </div>
+    <div class="cta-widget-placeholder reveal">
+      <!-- GetCourse widget -->
+      <a href="#get-set" class="cta-btn">Получить стартовый сет бесплатно</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================
+     5. ПОПРОБУЙТЕ САМИ — СЕТ «ТРИ СТОЛИЦЫ»
+     ============================================ -->
+<section>
+  <div class="container-wide">
+    <div class="section-header reveal">
+      <span class="label">Ваш первый сет — в подарок</span>
+      <h2>Сет «Три столицы»</h2>
+      <p>Одна куриная грудка. Три кухни мира. Ноль отходов. Мы отдаём вам наш эталонный сет, чтобы вы попробовали систему на себе. Без подписки, без карты, без обязательств.</p>
+    </div>
+
+    <div class="dish-cards reveal">
+      <div class="dish-card">
+        <div class="dish-photo">
+          <img src="Фото : Сет 3 столицы/2.4 — ФИНАЛ У2.png" alt="Греческий ужин с гремолатой">
+        </div>
+        <div class="dish-body">
+          <span class="dish-region">День 1 · Средиземноморье</span>
+          <h3>Греческий ужин с гремолатой</h3>
+          <p>Нежный стейк грудки с яркой лимонно-петрушечной гремолатой, хрустящий греческий салат с брынзой и лёгкий кус-кус. Свежо, сочно, красиво.</p>
+        </div>
+      </div>
+
+      <div class="dish-card">
+        <div class="dish-photo">
+          <img src="Фото : Сет 3 столицы/1.6 .png" alt="Курочка в кисло-сладком соусе с рисом">
+        </div>
+        <div class="dish-body">
+          <span class="dish-region">День 2 · Азия</span>
+          <h3>Курочка в кисло-сладком соусе с рисом</h3>
+          <p>Хрустящие кубики в глянцевом соусе, рис горкой, арахис и зелёный лук. Тот самый вкус, ради которого обычно заказывают доставку.</p>
+        </div>
+      </div>
+
+      <div class="dish-card">
+        <div class="dish-photo">
+          <img src="Фото : Сет 3 столицы/2.5 — ФИНАЛ У3.png" alt="Ближневосточная тарелка">
+        </div>
+        <div class="dish-body">
+          <span class="dish-region">День 3 · Ближний Восток</span>
+          <h3>Ближневосточная тарелка</h3>
+          <p>Тёплая пита, табуле из булгура с мятой, прохладный дзадзики и маслины. Собираешь на тарелке, макаешь, отрываешь.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top: 40px;">
+      <h3 class="heading-font" style="font-size: 18px; font-weight: 700; color: var(--graphite); margin-bottom: 16px; text-align: center;">Что внутри сета</h3>
+      <ul class="feature-list">
+        <li>15 продуктов в списке покупок — и точная раскладка, куда уходит каждый</li>
+        <li>Пошаговые инструкции с фотографиями ключевых шагов</li>
+        <li>2 сценария готовки: всё за раз (~65 мин) или по одному блюду в день</li>
+        <li>2 готовых соуса (гремолата + дзадзики), которые делаются за 5 минут</li>
+        <li>Таблица хранения и порядок поедания</li>
+        <li>Блок замен: нет брынзы — берите фету, нет булгура — кус-кус</li>
+      </ul>
+    </div>
+
+    <div id="get-set" class="cta-widget-placeholder reveal">
+      <!-- GetCourse widget -->
+      <a href="#" class="cta-btn">Забрать сет «Три столицы» бесплатно</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================
+     6. ПОЧЕМУ ЭТО РАБОТАЕТ
+     ============================================ -->
+<section>
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Логика продуктов</span>
+      <h2>Одни продукты — разные блюда</h2>
+      <p>Вот как это выглядит в сете «Три столицы»:</p>
+    </div>
+    <div class="reveal">
+      <ul class="product-flow">
+        <li><strong>Куриная грудка</strong> (1,5 кг) → кубики в кисло-сладком + стейк с гремолатой + стейк к табуле</li>
+        <li><strong>Петрушка</strong> (1 пучок) → гремолата + дзадзики + посыпка к рису + табуле</li>
+        <li><strong>Огурцы</strong> (2 шт) → греческий салат + дзадзики + табуле</li>
+        <li><strong>Маслины</strong> (1 банка) → греческий + ближневосточная тарелка</li>
+        <li><strong>Красный лук</strong> (1 шт) → кольцами в греческий + кубиком в табуле</li>
+        <li><strong>Лимон</strong> (2 шт) → цедра в гремолату + сок в дзадзики + заправка табуле + долька в рис</li>
+      </ul>
+    </div>
+    <p class="reveal" style="margin-top: 20px; font-style: italic; color: var(--text-secondary); font-size: 15px;">Один пучок зелени — три блюда. Одна банка маслин — два блюда. Покупать меньше, готовить разнообразнее, выбрасывать — ничего.</p>
+    <div class="reveal" style="margin-top: 24px;">
+      <div class="photo-placeholder">
+        <span>Инфографика: продукты слева → стрелки → три тарелки справа</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================
+     7. ЭТО НЕ ПРОСТО РЕЦЕПТЫ
+     ============================================ -->
+<section>
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Не подборка рецептов</span>
+      <h2>Это — система</h2>
+    </div>
+    <div class="text-block reveal">
+      <p>Рецепты есть везде. Их миллион. От этого только хуже — открываешь Pinterest, и через 20 минут скроллинга всё ещё не знаешь, что готовить.</p>
+      <p>Set-up — это не ещё одна подборка. Это система, где за вас уже все продумали:</p>
+    </div>
+    <div class="reveal" style="margin-top: 20px;">
+      <ul class="feature-list" style="max-width: 560px; margin: 0 auto;">
+        <li>Что купить — один список на три дня</li>
+        <li>Как распределить продукты между блюдами</li>
+        <li>В каком порядке готовить — чтобы уложиться в 20 минут</li>
+        <li>Что с чем сочетается — три кухни, три вкуса, без повторов</li>
+      </ul>
+    </div>
+    <p class="reveal" style="margin-top: 24px; text-align: center; font-style: italic; color: var(--text-secondary);">Вы просто следуете маршруту. Как навигатор, только на кухне.</p>
+    <div class="reveal" style="margin-top: 24px;">
+      <div class="photo-placeholder">
+        <span>Два кадра: скриншот пошагового плана + финальное блюдо на тарелке</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================
+     8. ЦИФРЫ
+     ============================================ -->
+<section>
+  <div class="container-wide">
+    <div class="section-header reveal">
+      <span class="label">В цифрах</span>
+      <h2>Один сет — вся картина</h2>
+    </div>
+    <div class="stats-grid reveal">
+      <div class="stat-card">
+        <div class="stat-number">~1 500 ₽</div>
+        <div class="stat-label">стоимость продуктов на 3 блюда для двоих</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">65 мин</div>
+        <div class="stat-label">суммарное время готовки всех трёх блюд</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">15</div>
+        <div class="stat-label">продуктов — один поход в магазин</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">~4 000 ₽</div>
+        <div class="stat-label">столько стоят 3 доставки из ресторана</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">0</div>
+        <div class="stat-label">выброшенных продуктов к концу сета</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================
+     9. ДЛЯ КОГО ЭТО
+     ============================================ -->
+<section>
+  <div class="container-wide">
+    <div class="section-header reveal">
+      <h2>Для кого это</h2>
+    </div>
+    <div class="audience-grid reveal">
+      <div class="audience-card yes">
+        <h3>Для вас, если:</h3>
+        <ul>
+          <li>Каждый вечер мучаетесь вопросом «что приготовить?»</li>
+          <li>Половина продуктов из холодильника отправляется в мусорку</li>
+          <li>Заказываете доставку не потому что хочется, а потому что нет сил думать</li>
+          <li>Умеете готовить, но устали от одних и тех же 5 блюд по кругу</li>
+          <li>Хотите кормить семью вкусно, но без многочасовых эпопей</li>
+        </ul>
+      </div>
+      <div class="audience-card no">
+        <h3>Не для вас, если:</h3>
+        <ul>
+          <li>Вы любите каждый день придумывать меню с нуля — это для вас удовольствие</li>
+          <li>Вам нужна диета с подсчётом калорий — мы про вкус и систему, не про похудение</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================
+     10. FAQ
+     ============================================ -->
+<section>
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Вопросы</span>
+      <h2>Частые вопросы</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-question">Это подписка? Меня привяжут?</button>
+        <div class="faq-answer"><div class="faq-answer-inner">Стартовый сет — бесплатный. Без карты, без автосписаний. Попробуйте, приготовьте, решите сами.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">А если продуктов из списка не будет в моём магазине?</button>
+        <div class="faq-answer"><div class="faq-answer-inner">В каждом сете есть блок замен. Нет брынзы — берите фету. Нет булгура — кус-кус. Все продукты — из обычного супермаркета, никакой экзотики.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Я не очень хорошо готовлю. Справлюсь?</button>
+        <div class="faq-answer"><div class="faq-answer-inner">Сет «Три столицы» — уровень «лёгкий». Инструкции пошаговые, с граммовками и фотографиями: «нарезать кубиком 2 см → обжарить 3 минуты». Угадывать ничего не нужно.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">У меня семья из 4 человек. Хватит?</button>
+        <div class="faq-answer"><div class="faq-answer-inner">В сете встроен калькулятор порций — от 1 до 4. Список покупок и граммовки пересчитываются автоматически.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Сколько времени нужно на готовку?</button>
+        <div class="faq-answer"><div class="faq-answer-inner">Два сценария: всё за раз за ~65 минут (Сценарий А) или по одному блюду в день — 20–40 минут вечером (Сценарий Б). Выбираете под своё расписание.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Чем это отличается от доставки?</button>
+        <div class="faq-answer"><div class="faq-answer-inner">Мы не привозим продукты. Вы покупаете сами — в удобном магазине, из свежего, что нравится. И это в 2–3 раза дешевле любой коробки с доставкой.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">А что будет после бесплатного сета?</button>
+        <div class="faq-answer"><div class="faq-answer-inner">Если понравится — можно подписаться на систему. Каждую неделю — новый сет с новым вкусом. Но давайте сначала попробуем.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================
+     11. ФИНАЛЬНЫЙ БЛОК
+     ============================================ -->
+<section class="closing-section">
+  <div class="container-wide">
+    <div class="reveal">
+      <h2>Один сет. Три вечера без вопроса «что приготовить?».</h2>
+      <p>Заберите сет «Три столицы» — это бесплатно. Внутри: список покупок на 15 продуктов, три блюда из трёх кухонь мира, пошаговые карточки с фото и два соуса, которые готовятся за 5 минут.</p>
+    </div>
+    <div class="triptych reveal">
+      <img src="Фото : Сет 3 столицы/2.4 — ФИНАЛ У2.png" alt="Средиземноморье">
+      <img src="Фото : Сет 3 столицы/1.6 .png" alt="Азия">
+      <img src="Фото : Сет 3 столицы/2.5 — ФИНАЛ У3.png" alt="Ближний Восток">
+    </div>
+    <p class="reveal" style="font-style: italic; color: var(--text-secondary); margin-bottom: 32px;">Попробуйте. Если после третьего ужина холодильник будет пуст, а вы — довольны, значит, система работает.</p>
+    <div class="cta-widget-placeholder reveal">
+      <!-- GetCourse widget -->
+      <a href="#get-set" class="cta-btn">Получить сет «Три столицы» бесплатно</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================
+     КРЕДО
+     ============================================ -->
+<section style="padding: 40px 0;">
+  <div class="container">
+    <div class="text-block reveal" style="text-align: center;">
+      <span class="label" style="margin-bottom: 16px; display: block;">Кто мы</span>
+      <p><strong>Школа ЩиБорщи</strong> — 10 лет учим людей готовить. 1000+ рецептов, 35 курсов, тысячи учеников.</p>
+      <p>Мы не блогеры, которые снимают «рецепт за 60 секунд». Мы — школа, где каждый рецепт проверен шеф-поварами, протестирован учениками и отработан до граммовки.</p>
+      <p>Система Set-up — это наш новый формат. Мы взяли лучшее из нашей базы и собрали в конструктор, который работает каждую неделю.</p>
+    </div>
+    <div class="reveal" style="margin-top: 24px;">
+      <div class="photo-placeholder" style="min-height: 160px;">
+        <span>Фото: команда ЩиБорщи на кухне или кадр с мастер-класса</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer>
+  <div class="divider"></div>
+  <div class="brand">ЩИБОРЩИ</div>
+  <div class="tagline">Всего вам вкусного</div>
+</footer>
+
+
+<!-- ============================================
+     SCRIPTS
+     ============================================ -->
+<script>
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        entry.target.style.transitionDelay = '0.05s';
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => observer.observe(el));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>

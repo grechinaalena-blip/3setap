@@ -1099,6 +1099,32 @@
     /* ============================================
        CTA — ОЦЕНИТЬ СЕТ
        ============================================ */
+    .cta-rate-section {
+      padding: 16px 0 48px;
+    }
+
+    .cta-rate-card {
+      text-align: center;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+      border: 1px solid var(--border);
+    }
+
+    .cta-rate-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--graphite);
+      margin-bottom: 8px;
+    }
+
+    .cta-rate-card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+
     .cta-rate-set {
       display: inline-block;
       font-family: 'Montserrat', sans-serif;
@@ -2183,9 +2209,13 @@
 <!-- ============================================
      CTA — ОЦЕНИТЬ СЕТ
      ============================================ -->
-<section style="padding: 32px 0 48px; text-align: center;">
+<section class="cta-rate-section">
   <div class="container">
-    <a href="#" class="cta-rate-set" target="_blank" rel="noopener">Оценить этот сет</a>
+    <div class="cta-rate-card">
+      <h3>Как впечатления от сета?</h3>
+      <p>Оцените рецепты — это помогает делать следующие сеты ещё точнее.</p>
+      <a href="#" class="cta-rate-set" target="_blank" rel="noopener">Оценить этот сет</a>
+    </div>
   </div>
 </section>
 

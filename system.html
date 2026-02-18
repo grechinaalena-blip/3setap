@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Сет «Три столицы» — ЩиБорщи</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,7 +35,8 @@
       --radius-lg: 22px;
     }
 
-    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: 100%; }
+    *, button, a { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
 
     body {
       font-family: 'Lora', Georgia, 'Times New Roman', serif;
@@ -43,6 +44,7 @@
       line-height: 1.75;
       color: var(--text-body);
       background: var(--linen);
+      padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
     }
 
     img { display: block; max-width: 100%; height: auto; }
@@ -182,7 +184,7 @@
     }
 
     .hero-subtitle {
-      font-size: 17px;
+      font-size: clamp(15px, 3.5vw, 17px);
       line-height: 1.6;
       color: rgba(255,255,255,0.82);
       max-width: 480px;
@@ -1195,9 +1197,15 @@
       .tips-grid { grid-template-columns: 1fr 1fr; }
     }
 
-    @media (max-width: 560px) {
+    @media (max-width: 820px) {
       section { padding: 48px 0; }
       .container { padding: 0 18px; }
+      .tips-grid { grid-template-columns: 1fr; }
+      .variants-row { grid-template-columns: 1fr; }
+      .set-info-grid { flex-direction: column; align-items: center; }
+    }
+
+    @media (max-width: 560px) {
       .carousel-wrapper { padding-left: 0; }
       .carousel-indicator { padding-left: 0; }
       .step-note { padding-left: 0; }
@@ -1206,8 +1214,14 @@
       .carousel-btn.next { right: -6px; }
       .carousel-btn { width: 34px; height: 34px; font-size: 18px; }
       .step-header { margin-bottom: 20px; }
-      .variants-row { grid-template-columns: 1fr; }
-      .set-info-grid { flex-direction: column; align-items: center; }
+    }
+
+    @media (max-width: 480px) {
+      .hero { min-height: 75vh; }
+      .hero-content { padding: 0 18px 40px; }
+      .hero-cuisine { padding: 6px 12px; }
+      .hero-cuisine-name { font-size: 12px; }
+      footer { padding-bottom: calc(24px + env(safe-area-inset-bottom)); }
     }
   </style>
 </head>
@@ -1218,7 +1232,7 @@
      ============================================ -->
 <section class="hero">
   <div class="hero-image">
-    <img src="Фото : Сет 3 столицы/0.3 Обложка.png" alt="Три тарелки сета «Три столицы» — Азия, Средиземноморье, Ближний Восток">
+    <img src="Фото : Сет 3 столицы/0.3 Обложка.jpg" alt="Три тарелки сета «Три столицы» — Азия, Средиземноморье, Ближний Восток">
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
@@ -1258,7 +1272,7 @@
       <!-- Dish 1 — День 1 -->
       <div class="dish-card reveal">
         <div class="dish-photo">
-          <img src="Фото : Сет 3 столицы/2.4 — ФИНАЛ У2.png" alt="Греческий ужин с гремолатой — финальная подача" style="width: 133%; max-width: none; height: 100%; margin-left: -33%; object-fit: cover;">
+          <img src="Фото : Сет 3 столицы/2.4 — ФИНАЛ У2.jpg" alt="Греческий ужин с гремолатой — финальная подача" style="width: 133%; max-width: none; height: 100%; margin-left: -33%; object-fit: cover;">
         </div>
         <div class="dish-body">
           <span class="dish-region">День 1. Средиземноморье</span>
@@ -1282,7 +1296,7 @@
       <!-- Dish 3 — День 3 -->
       <div class="dish-card reveal">
         <div class="dish-photo">
-          <img src="Фото : Сет 3 столицы/2.5 — ФИНАЛ У3.png" alt="Ближневосточная тарелка — финальная подача">
+          <img src="Фото : Сет 3 столицы/2.5 — ФИНАЛ У3.jpg" alt="Ближневосточная тарелка — финальная подача">
         </div>
         <div class="dish-body">
           <span class="dish-region">День 3. Ближний Восток</span>
@@ -1463,7 +1477,7 @@
           <div class="step-cards">
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/1.1..png" alt="Рис в сотейнике на плите" loading="lazy">
+                <img src="Фото : Сет 3 столицы/1.1..jpg" alt="Рис в сотейнике на плите" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Курочка в кисло-сладком соусе</span>
@@ -1472,7 +1486,7 @@
             </div>
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/5.1 | Булгур в сотейнике на плите .png" alt="Булгур в сотейнике на плите" loading="lazy">
+                <img src="Фото : Сет 3 столицы/5.1 | Булгур в сотейнике на плите .jpg" alt="Булгур в сотейнике на плите" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Табуле из булгура</span>
@@ -1506,7 +1520,7 @@
           <div class="step-cards">
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/3.1 | .png" alt="Мелко нарезанная петрушка, мята, измельчённый чеснок на доске" loading="lazy">
+                <img src="Фото : Сет 3 столицы/3.1 | .jpg" alt="Мелко нарезанная петрушка, мята, измельчённый чеснок на доске" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Гремолата · Табуле · Кисло-сладкая</span>
@@ -1515,7 +1529,7 @@
             </div>
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/4.2 — Тонко нарезанные.png" alt="Тонко нарезанные мята и петрушка на доске" loading="lazy" style="width: 167%; max-width: none; height: 100%; object-fit: cover; margin-right: -67%;">
+                <img src="Фото : Сет 3 столицы/4.2 — Тонко нарезанные.jpg" alt="Тонко нарезанные мята и петрушка на доске" loading="lazy" style="width: 167%; max-width: none; height: 100%; object-fit: cover; margin-right: -67%;">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Дзадзики · Табуле</span>
@@ -1524,7 +1538,7 @@
             </div>
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/5.2 | Помидоры и перец кубиком в мисках.png" alt="Помидоры и перец кубиком в мисках" loading="lazy">
+                <img src="Фото : Сет 3 столицы/5.2 | Помидоры и перец кубиком в мисках.jpg" alt="Помидоры и перец кубиком в мисках" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Табуле из булгура</span>
@@ -1533,7 +1547,7 @@
             </div>
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/6.7.png" alt="Помидор, нарезанный дольками и затем поперёк на кусочки, на доске" loading="lazy">
+                <img src="Фото : Сет 3 столицы/6.7.jpg" alt="Помидор, нарезанный дольками и затем поперёк на кусочки, на доске" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Салат Греческий</span>
@@ -1542,7 +1556,7 @@
             </div>
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/6.3.png" alt="Перец, нарезанный крупными кусками, на доске" loading="lazy">
+                <img src="Фото : Сет 3 столицы/6.3.jpg" alt="Перец, нарезанный крупными кусками, на доске" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Салат Греческий</span>
@@ -1551,7 +1565,7 @@
             </div>
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/6.5.png" alt="Красный лук тонкими кольцами на доске" loading="lazy">
+                <img src="Фото : Сет 3 столицы/6.5.jpg" alt="Красный лук тонкими кольцами на доске" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Салат Греческий</span>
@@ -1560,7 +1574,7 @@
             </div>
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/5.3 | Красный лук полукольцами в миске .png" alt="Красный лук мелким кубиком" loading="lazy">
+                <img src="Фото : Сет 3 столицы/5.3 | Красный лук полукольцами в миске .jpg" alt="Красный лук мелким кубиком" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Табуле из булгура</span>
@@ -1569,7 +1583,7 @@
             </div>
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/4.1 | Огурец соломкой.png" alt="Огурец соломкой" loading="lazy">
+                <img src="Фото : Сет 3 столицы/4.1 | Огурец соломкой.jpg" alt="Огурец соломкой" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Соус дзадзики · Табуле из булгура</span>
@@ -1578,7 +1592,7 @@
             </div>
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/6.2 .png" alt="Огурец, нарезанный крупными кусками, на доске" loading="lazy">
+                <img src="Фото : Сет 3 столицы/6.2 .jpg" alt="Огурец, нарезанный крупными кусками, на доске" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Салат Греческий</span>
@@ -1587,7 +1601,7 @@
             </div>
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/6.1 .png" alt="Салатный лист, порванный руками, в миске" loading="lazy">
+                <img src="Фото : Сет 3 столицы/6.1 .jpg" alt="Салатный лист, порванный руками, в миске" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Салат Греческий</span>
@@ -1596,7 +1610,7 @@
             </div>
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/1.2 | Кубики грудки в миске, рядом пиала с крахмалом.png" alt="Кубики грудки в миске, рядом пиала с крахмалом" loading="lazy">
+                <img src="Фото : Сет 3 столицы/1.2 | Кубики грудки в миске, рядом пиала с крахмалом.jpg" alt="Кубики грудки в миске, рядом пиала с крахмалом" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Курочка в кисло-сладком соусе</span>
@@ -1605,7 +1619,7 @@
             </div>
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/2.1 | 6 стейков грудки на доске (без соли.png" alt="6 стейков грудки на доске" loading="lazy">
+                <img src="Фото : Сет 3 столицы/2.1 | 6 стейков грудки на доске (без соли.jpg" alt="6 стейков грудки на доске" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Жареная куриная грудка медленным способом</span>
@@ -1633,7 +1647,7 @@
           <div class="step-cards">
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/3.2 — Готовая гремолата.png" alt="Готовая гремолата в стеклянной банке, рядом лимон с натёртой цедрой" loading="lazy">
+                <img src="Фото : Сет 3 столицы/3.2 — Готовая гремолата.jpg" alt="Готовая гремолата в стеклянной банке, рядом лимон с натёртой цедрой" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Гремолата</span>
@@ -1642,7 +1656,7 @@
             </div>
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/4.3 | Готовый дзадзики в стеклянной банке, рядом мята и петрушка.png" alt="Готовый дзадзики в стеклянной банке, рядом мята и петрушка" loading="lazy">
+                <img src="Фото : Сет 3 столицы/4.3 | Готовый дзадзики в стеклянной банке, рядом мята и петрушка.jpg" alt="Готовый дзадзики в стеклянной банке, рядом мята и петрушка" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Соус дзадзики</span>
@@ -1651,7 +1665,7 @@
             </div>
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/5.4 | Готовое табуле в контейнере — булгур с яркими овощами и зеленью .png" alt="Табуле в контейнере — булгур с яркими овощами и зеленью" loading="lazy">
+                <img src="Фото : Сет 3 столицы/5.4 | Готовое табуле в контейнере — булгур с яркими овощами и зеленью .jpg" alt="Табуле в контейнере — булгур с яркими овощами и зеленью" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Табуле из булгура</span>
@@ -1660,7 +1674,7 @@
             </div>
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/6.4.png" alt="Брынза, нарезанная крупным кубиком, на доске" loading="lazy">
+                <img src="Фото : Сет 3 столицы/6.4.jpg" alt="Брынза, нарезанная крупным кубиком, на доске" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Салат Греческий</span>
@@ -1669,7 +1683,7 @@
             </div>
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/6.8.png" alt="Маслины, нарезанные пополам, на доске" loading="lazy">
+                <img src="Фото : Сет 3 столицы/6.8.jpg" alt="Маслины, нарезанные пополам, на доске" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Салат Греческий</span>
@@ -1705,7 +1719,7 @@
           <div class="step-cards">
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/1.3 | Кубики курицы на сковороде с золотистой корочкой .png" alt="Кубики курицы на сковороде с золотистой корочкой" loading="lazy">
+                <img src="Фото : Сет 3 столицы/1.3 | Кубики курицы на сковороде с золотистой корочкой .jpg" alt="Кубики курицы на сковороде с золотистой корочкой" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Курочка в кисло-сладком соусе</span>
@@ -1714,7 +1728,7 @@
             </div>
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/1.4 — Овощная смесь обжаривается на сковороде.png" alt="Овощная смесь обжаривается на сковороде" loading="lazy">
+                <img src="Фото : Сет 3 столицы/1.4 — Овощная смесь обжаривается на сковороде.jpg" alt="Овощная смесь обжаривается на сковороде" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Курочка в кисло-сладком соусе</span>
@@ -1723,7 +1737,7 @@
             </div>
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/1.5 — Курица + овощи + арахис в глянцевом соусе на сковороде.png" alt="Курица + овощи + арахис в глянцевом соусе на сковороде" loading="lazy">
+                <img src="Фото : Сет 3 столицы/1.5 — Курица + овощи + арахис в глянцевом соусе на сковороде.jpg" alt="Курица + овощи + арахис в глянцевом соусе на сковороде" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Курочка в кисло-сладком соусе</span>
@@ -1742,7 +1756,7 @@
             </div>
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/2.2 — 3 стейка на сковороде, равномерный цвет без корочки.png" alt="3 стейка на сковороде, равномерный цвет без корочки" loading="lazy">
+                <img src="Фото : Сет 3 столицы/2.2 — 3 стейка на сковороде, равномерный цвет без корочки.jpg" alt="3 стейка на сковороде, равномерный цвет без корочки" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Жареная куриная грудка медленным способом</span>
@@ -1751,7 +1765,7 @@
             </div>
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/2.3 — Стейки в приоткрытой фольге, сочная текстура.png" alt="Стейки в приоткрытой фольге, видна сочная текстура" loading="lazy">
+                <img src="Фото : Сет 3 столицы/2.3 — Стейки в приоткрытой фольге, сочная текстура.jpg" alt="Стейки в приоткрытой фольге, видна сочная текстура" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Жареная куриная грудка медленным способом</span>
@@ -1790,7 +1804,7 @@
             </div>
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/6.9.png" alt="Готовая заправка в миске — масло, орегано, лимонный сок" loading="lazy">
+                <img src="Фото : Сет 3 столицы/6.9.jpg" alt="Готовая заправка в миске — масло, орегано, лимонный сок" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">День 2 · Салат Греческий</span>
@@ -1799,7 +1813,7 @@
             </div>
             <div class="step-card card-final">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/2.4 — ФИНАЛ У2.png" alt="Греческий ужин с гремолатой — стейк + греческий салат + кус-кус" loading="lazy" style="width: 150%; max-width: none; height: 100%; object-fit: cover; margin-left: -50%;">
+                <img src="Фото : Сет 3 столицы/2.4 — ФИНАЛ У2.jpg" alt="Греческий ужин с гремолатой — стейк + греческий салат + кус-кус" loading="lazy" style="width: 150%; max-width: none; height: 100%; object-fit: cover; margin-left: -50%;">
               </div>
               <div class="card-content">
                 <div class="card-dish-name">Греческий ужин с гремолатой [Средиземноморье]</div>
@@ -1815,7 +1829,7 @@
             </div>
             <div class="step-card card-final">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/2.5 — ФИНАЛ У3.png" alt="Ближневосточная тарелка — стейк + табуле + пита + дзадзики + маслины" loading="lazy">
+                <img src="Фото : Сет 3 столицы/2.5 — ФИНАЛ У3.jpg" alt="Ближневосточная тарелка — стейк + табуле + пита + дзадзики + маслины" loading="lazy">
               </div>
               <div class="card-content">
                 <div class="card-dish-name">Ближневосточная тарелка [Ближний Восток]</div>
@@ -1909,7 +1923,7 @@
 
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/3.1 | .png" alt="Мелко нарезанная петрушка" loading="lazy">
+                <img src="Фото : Сет 3 столицы/3.1 | .jpg" alt="Мелко нарезанная петрушка" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Нарезка зелени</span>
@@ -1919,7 +1933,7 @@
 
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/4.1 | Огурец соломкой.png" alt="Огурец соломкой для дзадзики" loading="lazy">
+                <img src="Фото : Сет 3 столицы/4.1 | Огурец соломкой.jpg" alt="Огурец соломкой для дзадзики" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Нарезка зелени</span>
@@ -1929,7 +1943,7 @@
 
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/6.7.png" alt="Помидоры дольками" loading="lazy">
+                <img src="Фото : Сет 3 столицы/6.7.jpg" alt="Помидоры дольками" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Нарезка овощей для салата</span>
@@ -1939,7 +1953,7 @@
 
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/3.2 — Готовая гремолата.png" alt="Гремолата в стеклянной банке" loading="lazy">
+                <img src="Фото : Сет 3 столицы/3.2 — Готовая гремолата.jpg" alt="Гремолата в стеклянной банке" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Заготовка → в холодильник</span>
@@ -1949,7 +1963,7 @@
 
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/4.3 | Готовый дзадзики в стеклянной банке, рядом мята и петрушка.png" alt="Дзадзики в стеклянной банке" loading="lazy">
+                <img src="Фото : Сет 3 столицы/4.3 | Готовый дзадзики в стеклянной банке, рядом мята и петрушка.jpg" alt="Дзадзики в стеклянной банке" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Заготовка → в холодильник</span>
@@ -1959,7 +1973,7 @@
 
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/2.1 | 6 стейков грудки на доске (без соли.png" alt="Стейки грудки на доске" loading="lazy">
+                <img src="Фото : Сет 3 столицы/2.1 | 6 стейков грудки на доске (без соли.jpg" alt="Стейки грудки на доске" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Нарезка курицы (помыть доску)</span>
@@ -1969,7 +1983,7 @@
 
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/2.2 — 3 стейка на сковороде, равномерный цвет без корочки.png" alt="Стейки на сковороде" loading="lazy">
+                <img src="Фото : Сет 3 столицы/2.2 — 3 стейка на сковороде, равномерный цвет без корочки.jpg" alt="Стейки на сковороде" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Жарка стейков</span>
@@ -1979,7 +1993,7 @@
 
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/6.9.png" alt="Заправка для греческого салата" loading="lazy">
+                <img src="Фото : Сет 3 столицы/6.9.jpg" alt="Заправка для греческого салата" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Собрать салат (пока стейки отдыхают)</span>
@@ -1989,7 +2003,7 @@
 
             <div class="step-card card-final">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/2.4 — ФИНАЛ У2.png" alt="Греческий ужин с гремолатой" loading="lazy" style="width: 150%; max-width: none; height: 115%; object-fit: cover; margin-left: -50%; margin-top: -8%;">
+                <img src="Фото : Сет 3 столицы/2.4 — ФИНАЛ У2.jpg" alt="Греческий ужин с гремолатой" loading="lazy" style="width: 150%; max-width: none; height: 115%; object-fit: cover; margin-left: -50%; margin-top: -8%;">
               </div>
               <div class="card-content">
                 <div class="card-dish-name">Греческий ужин с гремолатой</div>
@@ -2019,7 +2033,7 @@
 
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/1.1..png" alt="Рис в сотейнике" loading="lazy">
+                <img src="Фото : Сет 3 столицы/1.1..jpg" alt="Рис в сотейнике" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Крупы (поставить первым делом)</span>
@@ -2029,7 +2043,7 @@
 
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/5.1 | Булгур в сотейнике на плите .png" alt="Булгур в сотейнике" loading="lazy">
+                <img src="Фото : Сет 3 столицы/5.1 | Булгур в сотейнике на плите .jpg" alt="Булгур в сотейнике" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Крупы (→ День 3)</span>
@@ -2046,7 +2060,7 @@
 
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/1.3 | Кубики курицы на сковороде с золотистой корочкой .png" alt="Кубики курицы с золотистой корочкой" loading="lazy">
+                <img src="Фото : Сет 3 столицы/1.3 | Кубики курицы на сковороде с золотистой корочкой .jpg" alt="Кубики курицы с золотистой корочкой" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Жарка</span>
@@ -2056,7 +2070,7 @@
 
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/1.4 — Овощная смесь обжаривается на сковороде.png" alt="Овощная смесь на сковороде" loading="lazy">
+                <img src="Фото : Сет 3 столицы/1.4 — Овощная смесь обжаривается на сковороде.jpg" alt="Овощная смесь на сковороде" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Жарка</span>
@@ -2066,7 +2080,7 @@
 
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/1.5 — Курица + овощи + арахис в глянцевом соусе на сковороде.png" alt="Курица в кисло-сладком соусе" loading="lazy">
+                <img src="Фото : Сет 3 столицы/1.5 — Курица + овощи + арахис в глянцевом соусе на сковороде.jpg" alt="Курица в кисло-сладком соусе" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Соус</span>
@@ -2106,7 +2120,7 @@
 
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/2.2 — 3 стейка на сковороде, равномерный цвет без корочки.png" alt="Стейки на сковороде" loading="lazy">
+                <img src="Фото : Сет 3 столицы/2.2 — 3 стейка на сковороде, равномерный цвет без корочки.jpg" alt="Стейки на сковороде" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Жарка стейков</span>
@@ -2116,7 +2130,7 @@
 
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/5.2 | Помидоры и перец кубиком в мисках.png" alt="Помидоры и перец мелким кубиком" loading="lazy">
+                <img src="Фото : Сет 3 столицы/5.2 | Помидоры и перец кубиком в мисках.jpg" alt="Помидоры и перец мелким кубиком" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Нарезка (если не сделали вчера)</span>
@@ -2126,7 +2140,7 @@
 
             <div class="step-card">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/5.4 | Готовое табуле в контейнере — булгур с яркими овощами и зеленью .png" alt="Готовое табуле" loading="lazy">
+                <img src="Фото : Сет 3 столицы/5.4 | Готовое табуле в контейнере — булгур с яркими овощами и зеленью .jpg" alt="Готовое табуле" loading="lazy">
               </div>
               <div class="card-content">
                 <span class="card-recipe">Собрать табуле</span>
@@ -2143,7 +2157,7 @@
 
             <div class="step-card card-final">
               <div class="card-photo">
-                <img src="Фото : Сет 3 столицы/2.5 — ФИНАЛ У3.png" alt="Ближневосточная тарелка" loading="lazy">
+                <img src="Фото : Сет 3 столицы/2.5 — ФИНАЛ У3.jpg" alt="Ближневосточная тарелка" loading="lazy">
               </div>
               <div class="card-content">
                 <div class="card-dish-name">Ближневосточная тарелка</div>

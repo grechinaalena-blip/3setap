@@ -359,41 +359,56 @@
     }
 
     /* ============================================
-       SITUATION (PROBLEM) — editorial
+       SITUATION (PROBLEM) — text + photo side by side
        ============================================ */
-    .situation-editorial {
+    .situation-grid {
       display: grid;
-      grid-template-columns: 4px 1fr;
-      gap: 28px;
-      align-items: start;
-      max-width: 680px;
-      margin: 0 auto;
-    }
-
-    .situation-accent-bar {
-      width: 4px;
-      background: linear-gradient(to bottom, var(--terracotta), var(--sage));
-      border-radius: 4px;
-      min-height: 100%;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: center;
     }
 
     .situation-text h2 {
       font-family: 'Montserrat', sans-serif;
-      font-size: clamp(24px, 3.5vw, 32px);
+      font-size: clamp(22px, 3vw, 28px);
       font-weight: 700;
       color: var(--graphite);
-      line-height: 1.3;
-      margin-bottom: 20px;
+      line-height: 1.35;
+      margin-bottom: 18px;
     }
 
     .situation-text p {
-      font-size: 17px;
+      font-size: 16px;
       line-height: 1.75;
       color: var(--text-body);
     }
 
+    .situation-photo {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    .situation-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    @media (max-width: 700px) {
+      .situation-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .situation-photo {
+        max-height: 240px;
+        order: -1;
+      }
+    }
+
     /* ============================================
-       STAT PAIN CARDS (3 cards after situation)
+       STAT PAIN CARDS (3 light cards)
        ============================================ */
     .pain-section-title {
       font-family: 'Montserrat', sans-serif;
@@ -411,41 +426,29 @@
     }
 
     .pain-stat-card {
-      background: var(--graphite);
+      background: #fff;
       border-radius: var(--radius-lg);
-      padding: 32px 24px 28px;
+      padding: 28px 24px;
       text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .pain-stat-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--terracotta), var(--sage));
+      box-shadow: var(--shadow-card);
     }
 
     .pain-stat-number {
       font-family: 'Montserrat', sans-serif;
       font-weight: 800;
-      font-size: clamp(30px, 4.5vw, 40px);
-      color: #fff;
+      font-size: clamp(28px, 4vw, 36px);
+      color: var(--terracotta);
       line-height: 1.1;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .pain-stat-card p {
       font-size: 14px;
       line-height: 1.55;
-      color: rgba(255,255,255,0.65);
+      color: var(--text-secondary);
     }
 
     @media (max-width: 700px) {
-      .situation-editorial { gap: 20px; }
       .pain-stats {
         grid-template-columns: 1fr;
         gap: 12px;
@@ -455,15 +458,11 @@
         align-items: center;
         gap: 16px;
         text-align: left;
-        padding: 20px 20px 20px 24px;
-      }
-      .pain-stat-card::before {
-        top: 0; bottom: 0; left: 0;
-        width: 3px; height: auto; right: auto;
+        padding: 20px;
       }
       .pain-stat-number {
         flex-shrink: 0;
-        min-width: 90px;
+        min-width: 80px;
         margin-bottom: 0;
       }
     }
@@ -1179,16 +1178,18 @@
 
 
 <!-- ============================================
-     2. ЗНАКОМАЯ СИТУАЦИЯ — editorial + dark stat cards
+     2. ЗНАКОМАЯ СИТУАЦИЯ — текст + фото рядом
      ============================================ -->
 <section style="padding-top: 0;">
   <div class="container-wide">
 
-    <div class="situation-editorial reveal">
-      <div class="situation-accent-bar"></div>
+    <div class="situation-grid reveal">
       <div class="situation-text">
         <h2>Шесть вечера. Открытый холодильник. Пустой взгляд</h2>
         <p>Помидоры вчера подвяли. Половина пучка петрушки пожелтела. Куриная грудка лежит третий день, и вы уже не уверены, что ей можно доверять. Вы пытаетесь собрать из того, что есть, хоть что-то осмысленное на ужин.</p>
+      </div>
+      <div class="situation-photo">
+        <img src="fridge.png" alt="Открытый холодильник с контейнерами и зеленью" loading="lazy">
       </div>
     </div>
 

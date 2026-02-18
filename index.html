@@ -1036,13 +1036,65 @@
       margin: 0 auto 24px;
     }
 
-    .closing-price {
-      margin-bottom: 24px;
+    .cta-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start;
+      text-align: left;
+      margin-top: 32px;
     }
 
-    .closing-price .price-tag {
+    .cta-summary h3 {
+      font-size: 20px;
+      font-weight: 700;
       color: var(--graphite);
-      font-size: 36px;
+      margin-bottom: 16px;
+    }
+
+    .cta-summary-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .cta-summary-list li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 12px;
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .cta-summary-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--terracotta);
+      font-weight: 700;
+    }
+
+    .cta-widget-slot {
+      min-height: 280px;
+      border: 2px dashed #d5cdc4;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+    }
+
+    .cta-widget-slot::after {
+      content: 'Виджет оплаты';
+      color: #c4b9ac;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .cta-two-col {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* ============================================
@@ -1520,14 +1572,20 @@
       <img src="chicken-sweet-sour.jpg" alt="Азия">
       <img src="Фото : Сет 3 столицы/2.5 — ФИНАЛ У3.png" alt="Ближний Восток">
     </div>
-    <div class="closing-price reveal">
-      <span class="promo-badge">Спец акция</span>
-      <div style="margin-top: 16px;">
-        <span class="price-tag" style="color: var(--graphite); font-size: 36px;">390 ₽</span>
+    <div class="cta-two-col reveal">
+      <div class="cta-summary">
+        <h3>Что внутри сета</h3>
+        <ul class="cta-summary-list">
+          <li>1 список продуктов</li>
+          <li>3 пошаговых сценария</li>
+          <li>65 минут или 3 дня по 20–40 минут</li>
+          <li>Продуманный план</li>
+          <li>Чат-поддержка с шефом</li>
+        </ul>
       </div>
-    </div>
-    <div class="cta-widget-placeholder reveal">
-      <a href="#get-set" class="cta-btn">Забрать сет «Три столицы»</a>
+      <div class="cta-widget-slot" id="get-set">
+        <!-- Место для виджета оплаты -->
+      </div>
     </div>
   </div>
 </section>

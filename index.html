@@ -553,6 +553,31 @@
     }
 
     /* ============================================
+       PULL-QUOTE (accent divider)
+       ============================================ */
+    .pull-quote {
+      text-align: center;
+      padding: 48px 24px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .pull-quote p {
+      font-family: 'Lora', Georgia, serif;
+      font-style: italic;
+      font-size: clamp(20px, 3.2vw, 26px);
+      line-height: 1.55;
+      color: var(--graphite);
+    }
+
+    .pull-quote .pq-emoji {
+      display: block;
+      font-size: 36px;
+      margin-bottom: 16px;
+      font-style: normal;
+    }
+
+    /* ============================================
        HORIZONTAL SCROLL (mobile swipe)
        ============================================ */
     .hscroll-wrapper {
@@ -1267,6 +1292,12 @@
     </div>
   </div>
 </section>
+
+
+<!-- Акцент-цитата: эффект LEGO -->
+<div class="pull-quote reveal">
+  <p><span class="pq-emoji">🧱</span>Эффект LEGO: вы открываете холодильник, а там всё уже нарезано и соусы готовы. Сборка ужина занимает меньше времени, чем ожидание курьера.</p>
+</div>
 
 
 <!-- ============================================

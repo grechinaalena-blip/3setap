@@ -6,7 +6,7 @@
   <title>Сет «Три столицы» — ЩиБорщи</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <style>
     /* ============================================
        RESET & BASE
@@ -14,38 +14,35 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --linen: #f4f2ee;
+      --linen: #f5f3ed;
       --white: #ffffff;
-      --graphite: #1c1f23;
-      --graphite-soft: #2a2f35;
-      --text-body: #2f343a;
-      --text-secondary: #6b7280;
-      --text-muted: #9aa0a6;
-      --sage: #1c7c74;
-      --sage-dark: #145f59;
-      --sage-light: #e6f1ef;
-      --sage-pale: #f1f6f5;
-      --terracotta: #d67a52;
-      --terracotta-light: #faefe8;
-      --border: rgba(28, 31, 35, 0.08);
-      --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.06);
-      --shadow-md: 0 12px 32px rgba(15, 23, 42, 0.08);
-      --shadow-lg: 0 28px 60px rgba(15, 23, 42, 0.12);
-      --radius: 16px;
-      --radius-lg: 26px;
+      --graphite: #2a2a2a;
+      --graphite-soft: #4a4a4a;
+      --text-body: #3d3d3d;
+      --text-secondary: #7a7a7a;
+      --text-muted: #aaa;
+      --sage: #7d8b6e;
+      --sage-dark: #5f6d51;
+      --sage-light: #e9ede4;
+      --sage-pale: #f0f2ec;
+      --terracotta: #c0855c;
+      --terracotta-light: #f4e8dc;
+      --border: rgba(42, 42, 42, 0.07);
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.03);
+      --shadow-md: 0 4px 24px rgba(0,0,0,0.05);
+      --shadow-lg: 0 12px 48px rgba(0,0,0,0.08);
+      --radius: 14px;
+      --radius-lg: 22px;
     }
 
     html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
 
     body {
-      font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+      font-family: 'Lora', Georgia, 'Times New Roman', serif;
       font-size: 16px;
-      line-height: 1.7;
+      line-height: 1.75;
       color: var(--text-body);
-      background:
-        radial-gradient(1200px 600px at 10% -10%, rgba(214, 122, 82, 0.10), transparent 60%),
-        radial-gradient(900px 500px at 90% 10%, rgba(28, 124, 116, 0.12), transparent 55%),
-        var(--linen);
+      background: var(--linen);
     }
 
     img { display: block; max-width: 100%; height: auto; }
@@ -56,13 +53,13 @@
        TYPOGRAPHY
        ============================================ */
     h1, h2, h3, h4,
-    .heading-font { font-family: 'Space Grotesk', 'IBM Plex Sans', Arial, sans-serif; }
+    .heading-font { font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif; }
 
     .label {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
       font-weight: 600;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--sage);
     }
@@ -71,13 +68,13 @@
        LAYOUT
        ============================================ */
     .container {
-      max-width: 760px;
+      max-width: 680px;
       margin: 0 auto;
       padding: 0 24px;
     }
 
     section {
-      padding: 72px 0;
+      padding: 64px 0;
     }
 
     .divider {
@@ -106,12 +103,11 @@
        ============================================ */
     .hero {
       position: relative;
-      min-height: 88vh;
+      min-height: 85vh;
       display: flex;
       align-items: flex-end;
       padding: 0;
       overflow: hidden;
-      border-bottom: 1px solid var(--border);
     }
 
     .hero-image {
@@ -149,69 +145,79 @@
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(16,20,24,0.78) 0%, rgba(16,20,24,0.25) 55%, transparent 100%);
+      background: linear-gradient(to top, rgba(42,42,42,0.75) 0%, rgba(42,42,42,0.15) 50%, transparent 100%);
       z-index: 1;
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
-      padding: 0 24px 64px;
-      max-width: 760px;
+      padding: 0 24px 56px;
+      max-width: 680px;
       margin: 0 auto;
       width: 100%;
     }
 
     .hero-badge {
       display: inline-block;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
       font-weight: 600;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.75);
-      border: 1px solid rgba(255,255,255,0.35);
-      padding: 7px 18px;
+      color: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 6px 16px;
       border-radius: 100px;
-      margin-bottom: 18px;
-      backdrop-filter: blur(4px);
+      margin-bottom: 20px;
     }
 
     .hero h1 {
-      font-size: clamp(36px, 8vw, 58px);
+      font-size: clamp(32px, 7vw, 52px);
       font-weight: 700;
       color: #fff;
-      line-height: 1.05;
-      margin-bottom: 14px;
-      letter-spacing: -0.015em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
     }
 
     .hero-subtitle {
       font-size: 17px;
       line-height: 1.6;
       color: rgba(255,255,255,0.82);
-      max-width: 520px;
+      max-width: 480px;
     }
 
-    .hero-route {
+    .hero-cuisines {
       display: flex;
+      gap: 10px;
+      margin-top: 24px;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 18px;
     }
 
-    .hero-route span {
-      display: inline-flex;
+    .hero-cuisine {
+      display: flex;
       align-items: center;
-      gap: 6px;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 12px;
-      font-weight: 600;
-      color: rgba(255,255,255,0.85);
-      border: 1px solid rgba(255,255,255,0.25);
-      padding: 6px 12px;
+      gap: 8px;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.2);
       border-radius: 100px;
-      background: rgba(0,0,0,0.15);
+      padding: 8px 16px;
+    }
+
+    .hero-cuisine-flag {
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .hero-cuisine-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+      letter-spacing: 0.02em;
     }
 
     /* ============================================
@@ -228,11 +234,11 @@
     }
 
     .section-header h2 {
-      font-size: clamp(26px, 5vw, 36px);
+      font-size: clamp(24px, 5vw, 32px);
       font-weight: 700;
       color: var(--graphite);
-      line-height: 1.15;
-      letter-spacing: -0.015em;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
     }
 
     .section-header p {
@@ -252,7 +258,7 @@
     .dish-cards {
       display: flex;
       flex-direction: column;
-      gap: 32px;
+      gap: 40px;
     }
 
     .dish-card {
@@ -261,9 +267,7 @@
       gap: 0;
       border-radius: var(--radius-lg);
       overflow: hidden;
-      background: var(--white);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-sm);
+      background: var(--linen);
     }
 
     .dish-photo {
@@ -281,15 +285,15 @@
     .dish-card:hover .dish-photo img { transform: scale(1.03); }
 
     .dish-body {
-      padding: 26px 28px 30px;
+      padding: 28px 28px 32px;
     }
 
     .dish-region {
       display: inline-block;
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-size: 10px;
       font-weight: 600;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--sage);
       background: var(--sage-light);
@@ -299,7 +303,7 @@
     }
 
     .dish-body h3 {
-      font-size: 21px;
+      font-size: 20px;
       font-weight: 700;
       color: var(--graphite);
       margin-bottom: 8px;
@@ -361,7 +365,6 @@
       padding: 24px 28px;
       margin-bottom: 24px;
       border: 1px solid var(--border);
-      box-shadow: var(--shadow-sm);
     }
 
     .equipment-card h4 {
@@ -381,7 +384,7 @@
     .variants-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 14px;
+      gap: 12px;
     }
 
     .variant-card {
@@ -389,17 +392,13 @@
       border-radius: var(--radius);
       padding: 24px;
       border: 1px solid var(--border);
-      transition: border-color 0.3s, transform 0.25s ease;
-      box-shadow: var(--shadow-sm);
+      transition: border-color 0.3s;
     }
 
-    .variant-card:hover {
-      border-color: var(--sage);
-      transform: translateY(-2px);
-    }
+    .variant-card:hover { border-color: var(--sage); }
 
     .variant-label {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-size: 13px;
       font-weight: 700;
       color: var(--sage);
@@ -407,7 +406,7 @@
     }
 
     .variant-time {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-size: 22px;
       font-weight: 700;
       color: var(--graphite);
@@ -423,7 +422,7 @@
     .variant-go {
       display: inline-block;
       margin-top: 12px;
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-size: 13px;
       font-weight: 600;
       color: var(--sage-dark);
@@ -444,84 +443,100 @@
        ============================================ */
     .shopping { background: var(--white); }
 
-    .shopping-fresh {
-      margin-bottom: 40px;
-    }
-
-    .shopping-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    .shopping-table thead th {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      text-align: left;
-      padding: 0 0 12px;
-      border-bottom: 1.5px solid var(--border);
-    }
-
-    .shopping-table tbody td {
-      padding: 7px 8px 7px 0;
-      border-bottom: 1px solid rgba(0,0,0,0.04);
-      font-size: 14px;
-      line-height: 1.4;
-      vertical-align: baseline;
-    }
-
-    .shopping-table tbody td:first-child {
-      font-weight: 500;
-      color: var(--graphite);
-      width: 40%;
-    }
-
-    .shopping-table tbody td:nth-child(2) {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--sage-dark);
-      width: 18%;
-    }
-
-    .shopping-table tbody td:last-child {
-      color: var(--text-secondary);
-      font-size: 12px;
-    }
-
-    /* Portion toggle */
-    .portion-toggle {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
+    .shop-block {
       margin-bottom: 32px;
     }
 
-    .portion-btn {
-      font-family: 'Space Grotesk', sans-serif;
+    .shop-block-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--graphite);
+      margin-bottom: 6px;
+    }
+
+    .shop-block-sub {
       font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+
+    .shop-dept {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
       font-weight: 600;
-      color: var(--sage-dark);
-      background: var(--white);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin: 20px 0 8px;
+    }
+
+    .shop-dept:first-child { margin-top: 0; }
+
+    .shop-list {
+      list-style: none;
+    }
+
+    .shop-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .shop-list li:last-child { border-bottom: none; }
+
+    .shop-check {
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
       border: 1.5px solid var(--sage-light);
-      border-radius: 100px;
-      padding: 8px 20px;
+      border-radius: 3px;
+      position: relative;
+      top: 2px;
       cursor: pointer;
-      transition: all 0.25s ease;
+      transition: background 0.15s ease, border-color 0.15s ease;
     }
 
-    .portion-btn:hover {
-      border-color: var(--sage);
-      background: var(--sage-pale);
-    }
-
-    .portion-btn.active {
+    .shop-check.checked {
       background: var(--sage);
-      color: #fff;
       border-color: var(--sage);
+    }
+
+    .shop-check.checked::after {
+      content: '✓';
+      color: #fff;
+      font-size: 11px;
+      position: absolute;
+      top: -1px;
+      left: 2px;
+    }
+
+    .shop-item-name {
+      font-weight: 500;
+      color: var(--graphite);
+    }
+
+    .shop-item-qty {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--sage-dark);
+    }
+
+    .shop-item-hint {
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    li.checked-item .shop-item-name,
+    li.checked-item .shop-item-qty,
+    li.checked-item .shop-item-hint {
+      opacity: 0.4;
+      text-decoration: line-through;
     }
 
     .pantry-card, .subs-card {
@@ -529,7 +544,6 @@
       border-radius: var(--radius);
       padding: 24px 28px;
       margin-bottom: 20px;
-      border: 1px solid rgba(28, 31, 35, 0.04);
     }
 
     details.subs-card { padding: 16px 28px; }
@@ -602,7 +616,7 @@
       border-radius: 50%;
       background: var(--sage);
       color: #fff;
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-size: 16px;
       font-weight: 700;
       display: flex;
@@ -618,7 +632,7 @@
     }
 
     .step-time {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-size: 12px;
       font-weight: 500;
       color: var(--terracotta);
@@ -647,7 +661,7 @@
     }
 
     .day-nav-link:first-line {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-size: 13px;
       font-weight: 700;
       color: var(--graphite);
@@ -686,7 +700,7 @@
 
     .day-label {
       display: inline-block;
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.14em;
@@ -772,7 +786,7 @@
       justify-content: center;
       margin-top: 12px;
       padding-left: 60px;
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-size: 12px;
       font-weight: 600;
       color: var(--text-secondary);
@@ -796,7 +810,7 @@
 
     .card-recipe {
       display: block;
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-size: 10px;
       font-weight: 600;
       letter-spacing: 0.08em;
@@ -833,7 +847,7 @@
     .card-final .card-content { background: var(--sage-pale); }
 
     .card-final .card-dish-name {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-size: 15px;
       font-weight: 700;
       color: var(--sage-dark);
@@ -881,7 +895,7 @@
 
     .storage-table th {
       text-align: left;
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-size: 11px;
       font-weight: 600;
       letter-spacing: 0.06em;
@@ -927,7 +941,7 @@
 
     .order-list li::before {
       content: 'День ' counter(order);
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-size: 11px;
       font-weight: 700;
       color: var(--white);
@@ -974,7 +988,7 @@
     }
 
     .day-header .day-time {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-size: 12px;
       font-weight: 500;
       opacity: 0.8;
@@ -1049,7 +1063,7 @@
     }
 
     .leftover-product {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-size: 12px;
       font-weight: 600;
       color: var(--sage);
@@ -1093,7 +1107,7 @@
     }
 
     .tip-card strong {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-size: 13px;
       font-weight: 700;
     }
@@ -1101,39 +1115,35 @@
     /* ============================================
        CTA — ОЦЕНИТЬ СЕТ
        ============================================ */
-    .cta-block {
-      padding: 56px 0 72px;
+    .cta-rate-section {
+      padding: 16px 0 48px;
+    }
+
+    .cta-rate-card {
       text-align: center;
-      background:
-        radial-gradient(900px 300px at 50% 0%, rgba(28, 124, 116, 0.14), transparent 70%),
-        var(--white);
-      border-top: 1px solid var(--border);
-    }
-
-    .cta-card {
-      background: var(--linen);
-      border: 1px solid var(--border);
+      background: var(--white);
       border-radius: var(--radius-lg);
-      padding: 28px 24px;
-      box-shadow: var(--shadow-sm);
+      padding: 36px 32px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+      border: 1px solid var(--border);
     }
 
-    .cta-card h3 {
-      font-size: 22px;
+    .cta-rate-card h3 {
+      font-size: 18px;
       font-weight: 700;
       color: var(--graphite);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
-    .cta-card p {
-      font-size: 15px;
+    .cta-rate-card p {
+      font-size: 14px;
       color: var(--text-secondary);
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
     .cta-rate-set {
       display: inline-block;
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-size: 15px;
       font-weight: 600;
       color: var(--white);
@@ -1159,7 +1169,7 @@
     }
 
     footer .brand {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-size: 14px;
       font-weight: 700;
       color: var(--graphite);
@@ -1186,7 +1196,7 @@
     }
 
     @media (max-width: 560px) {
-      section { padding: 56px 0; }
+      section { padding: 48px 0; }
       .container { padding: 0 18px; }
       .carousel-wrapper { padding-left: 0; }
       .carousel-indicator { padding-left: 0; }
@@ -1214,11 +1224,20 @@
   <div class="hero-content">
     <span class="hero-badge">Set-up</span>
     <h1>Три столицы</h1>
-    <p class="hero-subtitle">Одна куриная грудка. Три кухни мира. Ноль отходов.<br>Азия → Средиземноморье → Ближний Восток — за три вечера вы побываете в трёх кулинарных столицах, не выходя из кухни.</p>
-    <div class="hero-route">
-      <span>День 1 · Средиземноморье</span>
-      <span>День 2 · Азия</span>
-      <span>День 3 · Ближний Восток</span>
+    <p class="hero-subtitle">Одна куриная грудка. Три кухни мира. Ноль отходов.<br>За три вечера вы побываете в трёх кулинарных столицах, не выходя из кухни.</p>
+    <div class="hero-cuisines">
+      <div class="hero-cuisine">
+        <span class="hero-cuisine-flag">🇬🇷</span>
+        <span class="hero-cuisine-name">Средиземноморье</span>
+      </div>
+      <div class="hero-cuisine">
+        <span class="hero-cuisine-flag">🇨🇳</span>
+        <span class="hero-cuisine-name">Азия</span>
+      </div>
+      <div class="hero-cuisine">
+        <span class="hero-cuisine-flag">🇱🇧</span>
+        <span class="hero-cuisine-name">Ближний Восток</span>
+      </div>
     </div>
   </div>
 </section>
@@ -1332,58 +1351,69 @@
   <div class="container">
     <div class="section-header reveal">
       <span class="label">Список</span>
-      <h2>Список покупок</h2>
+      <h2>Список покупок <span style="font-weight:400; font-size:0.6em; color:var(--text-secondary);">на 3 порции</span></h2>
     </div>
 
-    <div class="portion-toggle reveal" id="portionToggle">
-      <button class="portion-btn" data-portions="1">1 порция</button>
-      <button class="portion-btn" data-portions="2">2 порции</button>
-      <button class="portion-btn active" data-portions="3">3 порции</button>
-      <button class="portion-btn" data-portions="4">4 порции</button>
+    <!-- 1. Купить свежее -->
+    <div class="shop-block reveal">
+      <div class="shop-block-title">1. Купить свежее</div>
+      <p class="shop-block-sub">Основной список для магазина. Всего 15 позиций — один поход.</p>
+
+      <div class="shop-dept">Мясо и молочное</div>
+      <ul class="shop-list">
+        <li><span class="shop-check"></span><span><span class="shop-item-name">Куриная грудка (филе)</span> — <span class="shop-item-qty">1,5 кг</span> <span class="shop-item-hint">(возьмите 2 упаковки)</span></span></li>
+        <li><span class="shop-check"></span><span><span class="shop-item-name">Брынза или фета</span> — <span class="shop-item-qty">150 г</span> <span class="shop-item-hint">(1 стандартная пачка)</span></span></li>
+        <li><span class="shop-check"></span><span><span class="shop-item-name">Йогурт натуральный (густой)</span> — <span class="shop-item-qty">200 г</span> <span class="shop-item-hint">(1 баночка)</span></span></li>
+      </ul>
+
+      <div class="shop-dept">Овощи и фрукты</div>
+      <ul class="shop-list">
+        <li><span class="shop-check"></span><span><span class="shop-item-name">Помидоры</span> — <span class="shop-item-qty">400 г</span> <span class="shop-item-hint">(3–4 средних)</span></span></li>
+        <li><span class="shop-check"></span><span><span class="shop-item-name">Огурцы</span> — <span class="shop-item-qty">2 шт</span> <span class="shop-item-hint">(длинноплодных)</span></span></li>
+        <li><span class="shop-check"></span><span><span class="shop-item-name">Перец сладкий</span> — <span class="shop-item-qty">3 шт</span> <span class="shop-item-hint">(лучше разных цветов)</span></span></li>
+        <li><span class="shop-check"></span><span><span class="shop-item-name">Красный лук</span> — <span class="shop-item-qty">1 шт</span></span></li>
+        <li><span class="shop-check"></span><span><span class="shop-item-name">Лимон</span> — <span class="shop-item-qty">2 шт</span></span></li>
+        <li><span class="shop-check"></span><span><span class="shop-item-name">Чеснок</span> — <span class="shop-item-qty">1 головка</span> <span class="shop-item-hint">(нужно 4 зубчика)</span></span></li>
+        <li><span class="shop-check"></span><span><span class="shop-item-name">Салатный лист</span> — <span class="shop-item-qty">120 г</span></span></li>
+      </ul>
+
+      <div class="shop-dept">Зелень</div>
+      <ul class="shop-list">
+        <li><span class="shop-check"></span><span><span class="shop-item-name">Петрушка</span> — <span class="shop-item-qty">1 большой пучок</span></span></li>
+        <li><span class="shop-check"></span><span><span class="shop-item-name">Мята</span> — <span class="shop-item-qty">½ пучка</span></span></li>
+        <li><span class="shop-check"></span><span><span class="shop-item-name">Зелёный лук</span> — <span class="shop-item-qty">3 пера</span></span></li>
+      </ul>
+
+      <div class="shop-dept">Хлеб и заморозка</div>
+      <ul class="shop-list">
+        <li><span class="shop-check"></span><span><span class="shop-item-name">Пита</span> — <span class="shop-item-qty">3 шт</span> <span class="shop-item-hint">(1 упаковка)</span></span></li>
+        <li><span class="shop-check"></span><span><span class="shop-item-name">Замороженные овощи</span> — <span class="shop-item-qty">1 пачка 400 г</span></span></li>
+      </ul>
     </div>
 
-    <div class="shopping-fresh reveal">
-      <table class="shopping-table" id="shoppingTable">
-        <thead>
-          <tr>
-            <th>Продукт</th>
-            <th>Сколько</th>
-            <th>Куда уходит</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr data-q1="500 г" data-q2="1 кг" data-q3="1,5 кг" data-q4="2 кг"><td>Куриная грудка (филе)</td><td class="qty">1,5 кг</td><td>Блюдо 1 + 2 + 3</td></tr>
-          <tr data-q1="130 г" data-q2="270 г" data-q3="400 г" data-q4="530 г"><td>Помидоры</td><td class="qty">400 г</td><td>Греческий салат + табуле</td></tr>
-          <tr data-q1="1 шт" data-q2="2 шт" data-q3="2 шт" data-q4="3 шт"><td>Огурцы</td><td class="qty">2 шт</td><td>Греческий + дзадзики + табуле</td></tr>
-          <tr data-q1="1 шт" data-q2="2 шт" data-q3="3 шт" data-q4="4 шт"><td>Перец сладкий</td><td class="qty">3 шт</td><td>Греческий + табуле</td></tr>
-          <tr data-q1="½ пучка" data-q2="¾ пучка" data-q3="1 пучок" data-q4="1,5 пучка"><td>Петрушка</td><td class="qty">1 пучок</td><td>Гремолата + табуле + кисло-сладкая</td></tr>
-          <tr data-q1="1 шт" data-q2="2 шт" data-q3="2 шт" data-q4="3 шт"><td>Лимон</td><td class="qty">2 шт</td><td>Гремолата + дзадзики + табуле</td></tr>
-          <tr data-q1="3–4 веточки" data-q2="5–6 веточек" data-q3="½ пучка" data-q4="¾ пучка"><td>Мята</td><td class="qty">½ пучка</td><td>Дзадзики + табуле</td></tr>
-          <tr data-q1="½ шт" data-q2="1 шт" data-q3="1 шт" data-q4="2 шт"><td>Красный лук</td><td class="qty">1 шт</td><td>Греческий + табуле</td></tr>
-          <tr data-q1="1 перо" data-q2="2 пера" data-q3="3 пера" data-q4="4 пера"><td>Зелёный лук</td><td class="qty">3 пера</td><td>Кисло-сладкая</td></tr>
-          <tr data-q1="40 г" data-q2="80 г" data-q3="120 г" data-q4="160 г"><td>Салатный лист</td><td class="qty">120 г</td><td>Греческий</td></tr>
-          <tr data-q1="50 г" data-q2="100 г" data-q3="150 г" data-q4="200 г"><td>Брынза</td><td class="qty">150 г</td><td>Греческий</td></tr>
-          <tr data-q1="мини-банка 170 г" data-q2="мини-банка 170 г" data-q3="мини-банка 170 г" data-q4="230 г"><td>Маслины б/к</td><td class="qty">мини-банка 170 г</td><td>Греческий + ближневосточная</td></tr>
-          <tr data-q1="200 г" data-q2="200 г" data-q3="200 г" data-q4="400 г"><td>Йогурт натуральный</td><td class="qty">200 г</td><td>Дзадзики</td></tr>
-          <tr data-q1="1 пачка 400 г" data-q2="1 пачка 400 г" data-q3="1 пачка 400 г" data-q4="2 пачки"><td>Замороженные овощи</td><td class="qty">1 пачка 400 г</td><td>Кисло-сладкая</td></tr>
-          <tr data-q1="15 г" data-q2="25 г" data-q3="40 г" data-q4="50 г"><td>Арахис жареный</td><td class="qty">40 г</td><td>Кисло-сладкая</td></tr>
-          <tr data-q1="1 шт" data-q2="2 шт" data-q3="3 шт" data-q4="4 шт"><td>Пита</td><td class="qty">3 шт</td><td>Ближневосточная тарелка</td></tr>
-          <tr data-q1="65 г" data-q2="130 г" data-q3="200 г" data-q4="265 г"><td>Рис (жасмин)</td><td class="qty">200 г</td><td>Кисло-сладкая</td></tr>
-          <tr data-q1="40 г" data-q2="80 г" data-q3="120 г" data-q4="160 г"><td>Булгур</td><td class="qty">120 г</td><td>Табуле</td></tr>
-          <tr data-q1="35 г" data-q2="65 г" data-q3="100 г" data-q4="130 г"><td>Кус-кус</td><td class="qty">100 г</td><td>Ближневосточная тарелка</td></tr>
-          <tr data-q1="2 зубчика" data-q2="3 зубчика" data-q3="4 зубчика" data-q4="5 зубчиков"><td>Чеснок</td><td class="qty">4 зубчика</td><td>Гремолата + дзадзики + кисло-сладкая</td></tr>
-          <tr data-q1="1 ст. л." data-q2="2 ст. л." data-q3="2–3 ст. л." data-q4="3–4 ст. л."><td>Крахмал кукурузный</td><td class="qty">2–3 ст. л.</td><td>Кисло-сладкая</td></tr>
-          <tr data-q1="10 г" data-q2="20 г" data-q3="30 г" data-q4="40 г"><td>Кетчуп</td><td class="qty">30 г</td><td>Кисло-сладкая</td></tr>
-          <tr data-q1="10 мл" data-q2="20 мл" data-q3="30 мл" data-q4="40 мл"><td>Соевый соус</td><td class="qty">30 мл</td><td>Кисло-сладкая</td></tr>
-          <tr data-q1="35 мл" data-q2="65 мл" data-q3="100 мл" data-q4="130 мл"><td>Оливковое масло</td><td class="qty">100 мл</td><td>Гремолата + дзадзики + табуле + греческий</td></tr>
-          <tr data-q1="1 ч. л." data-q2="2 ч. л." data-q3="1 ст. л." data-q4="1,5 ст. л."><td>Бальзамик <span style="color:var(--sage-dark);font-size:13px;">(можно без него)</span></td><td class="qty">1 ст. л.</td><td>Греческий (заправка при подаче)</td></tr>
-        </tbody>
-      </table>
-    </div>
+    <!-- 2. Проверить в кладовой -->
+    <div class="shop-block reveal">
+      <div class="shop-block-title">2. Проверить в кладовой</div>
+      <p class="shop-block-sub">Эти продукты хранятся долго. Скорее всего, они у вас уже есть. Если нет — добавьте в корзину.</p>
 
-    <div class="pantry-card reveal" id="pantryCard">
-      <h4>Проверить дома</h4>
-      <p>Масло для жарки, орегано, соль, перец, сахар.</p>
+      <div class="shop-dept">Бакалея</div>
+      <ul class="shop-list">
+        <li><span class="shop-check"></span><span><span class="shop-item-name">Рис (жасмин или басмати)</span> — <span class="shop-item-qty">200 г</span></span></li>
+        <li><span class="shop-check"></span><span><span class="shop-item-name">Булгур</span> — <span class="shop-item-qty">120 г</span> <span class="shop-item-hint">(≈ ½ стакана)</span></span></li>
+        <li><span class="shop-check"></span><span><span class="shop-item-name">Кус-кус</span> — <span class="shop-item-qty">100 г</span></span></li>
+        <li><span class="shop-check"></span><span><span class="shop-item-name">Маслины б/к</span> — <span class="shop-item-qty">1 мини-банка 170 г</span></span></li>
+        <li><span class="shop-check"></span><span><span class="shop-item-name">Арахис жареный</span> — <span class="shop-item-qty">40 г</span> <span class="shop-item-hint">(горсть)</span></span></li>
+      </ul>
+
+      <div class="shop-dept">Соусы и специи</div>
+      <ul class="shop-list">
+        <li><span class="shop-check"></span><span><span class="shop-item-name">Оливковое масло</span> — <span class="shop-item-qty">100 мл</span></span></li>
+        <li><span class="shop-check"></span><span><span class="shop-item-name">Соевый соус</span> — <span class="shop-item-qty">30 мл</span></span></li>
+        <li><span class="shop-check"></span><span><span class="shop-item-name">Кетчуп</span> — <span class="shop-item-qty">30 г</span></span></li>
+        <li><span class="shop-check"></span><span><span class="shop-item-name">Крахмал</span> — <span class="shop-item-qty">2–3 ст. л.</span></span></li>
+        <li><span class="shop-check"></span><span><span class="shop-item-name">Бальзамик</span> — <span class="shop-item-qty">1 ст. л.</span> <span class="shop-item-hint">(можно без него)</span></span></li>
+        <li><span class="shop-check"></span><span><span class="shop-item-name">Масло для жарки, соль, перец, сахар, орегано</span></span></li>
+      </ul>
     </div>
 
     <details class="subs-card reveal">
@@ -2206,9 +2236,9 @@
 <!-- ============================================
      CTA — ОЦЕНИТЬ СЕТ
      ============================================ -->
-<section class="cta-block">
+<section class="cta-rate-section">
   <div class="container">
-    <div class="cta-card">
+    <div class="cta-rate-card">
       <h3>Как впечатления от сета?</h3>
       <p>Оцените рецепты — это помогает делать следующие сеты ещё точнее.</p>
       <a href="#" class="cta-rate-set" target="_blank" rel="noopener">Оценить этот сет</a>
@@ -2245,30 +2275,14 @@
 
   reveals.forEach(el => observer.observe(el));
 
-  // Portion toggle
-  (function() {
-    const btns = document.querySelectorAll('.portion-btn');
-    const rows = document.querySelectorAll('#shoppingTable tbody tr');
-    const pantrySpans = document.querySelectorAll('#pantryText > span[data-q1]');
 
-    btns.forEach(btn => {
-      btn.addEventListener('click', function() {
-        btns.forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-        const n = this.dataset.portions;
-
-        rows.forEach(row => {
-          const val = row.getAttribute('data-q' + n);
-          if (val) row.querySelector('.qty').textContent = val;
-        });
-
-        pantrySpans.forEach(span => {
-          const val = span.getAttribute('data-q' + n);
-          if (val) span.querySelector('.pantry-qty').textContent = val;
-        });
-      });
+  // Shopping checklist
+  document.querySelectorAll('.shop-check').forEach(check => {
+    check.addEventListener('click', function() {
+      this.classList.toggle('checked');
+      this.closest('li').classList.toggle('checked-item');
     });
-  })();
+  });
 
   // Carousel navigation
   (function() {

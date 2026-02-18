@@ -410,6 +410,107 @@
     }
 
     /* ============================================
+       STAT PAIN CARDS (3 cards after situation)
+       ============================================ */
+    .pain-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .pain-stat-card {
+      background: var(--cream);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      text-align: center;
+      box-shadow: var(--shadow-card);
+    }
+
+    .pain-stat-number {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: clamp(28px, 4vw, 36px);
+      color: var(--terracotta);
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .pain-stat-card p {
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--text-secondary);
+    }
+
+    @media (max-width: 700px) {
+      .pain-stats {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .pain-stat-card {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        text-align: left;
+        padding: 20px;
+      }
+      .pain-stat-number {
+        flex-shrink: 0;
+        min-width: 80px;
+        margin-bottom: 0;
+      }
+    }
+
+    /* ============================================
+       ICEBERG BLOCK
+       ============================================ */
+    .iceberg-block {
+      background: var(--cream);
+      border-radius: var(--radius-xl);
+      padding: 48px 36px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .iceberg-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin: 28px 0 32px;
+    }
+
+    .iceberg-item {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .iceberg-item strong {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      color: var(--graphite);
+      margin-bottom: 4px;
+    }
+
+    .iceberg-item span {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .iceberg-cta {
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--text-body);
+    }
+
+    @media (max-width: 700px) {
+      .iceberg-block { padding: 32px 20px; }
+      .iceberg-list { grid-template-columns: 1fr; }
+    }
+
+    /* ============================================
        SYSTEM FEATURE CARDS (6 cards)
        ============================================ */
     .system-cards {
@@ -1056,10 +1157,66 @@
       </div>
       <div class="situation-overlay"></div>
       <div class="situation-content">
-        <p>19:00. Вы стоите перед открытым холодильником. Помидор подвял. Петрушка пожелтела. Грудка лежит третий день — и вы не уверены, что ей ещё можно доверять.</p>
+        <p>Шесть вечера. Вы стоите перед открытым холодильником и пытаетесь собрать из того, что есть, хоть что-то осмысленное на ужин. Помидоры вчера подвяли. Половина пучка петрушки пожелтела. Куриная грудка лежит третий день, и вы уже не уверены, что ей можно доверять.</p>
         <p class="text-accent" style="margin-bottom: 14px;">Знакомо?</p>
-        <p>Проблема не в том, что вы не умеете готовить. Проблема — в вечном вопросе «а что приготовить?». Он отнимает больше сил, чем сама готовка.</p>
+        <p>Дело не в том, что вы не умеете готовить. Дело в том, что система «покупки и готовки», к которой мы привыкли, больше не работает.</p>
       </div>
+    </div>
+
+    <div class="section-header reveal" style="margin-top: 48px;">
+      <h2>Вы не одиноки — это системный сбой</h2>
+    </div>
+
+    <div class="pain-stats reveal">
+      <div class="pain-stat-card">
+        <div class="pain-stat-number">24 000 ₽</div>
+        <p>в год выбрасывает средняя семья из-за продуктов, купленных «на всякий случай» или без чёткого плана</p>
+      </div>
+      <div class="pain-stat-card">
+        <div class="pain-stat-number">200</div>
+        <p>микро-решений о еде мы принимаем ежедневно. К вечеру мозг просто отказывается креативить у плиты</p>
+      </div>
+      <div class="pain-stat-card">
+        <div class="pain-stat-number">150 ч</div>
+        <p>в год тратим впустую, блуждая между полками в магазинах, пытаясь сообразить, что же нужно купить</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================
+     2b. ВЕРХУШКА АЙСБЕРГА
+     ============================================ -->
+<section>
+  <div class="container-wide">
+    <div class="iceberg-block reveal">
+      <div class="section-header" style="margin-bottom: 0;">
+        <span class="label">Верхушка айсберга</span>
+        <h2>Готовка — это не только плита</h2>
+        <p>Многие думают, что их бесит сама жарка или варка. Но на самом деле готовка занимает всего 20 минут. Больше всего сил съедает «кухонный менеджмент» — невидимая работа, которую вы делаете каждый раз с нуля:</p>
+      </div>
+
+      <div class="iceberg-list">
+        <div class="iceberg-item">
+          <strong>Инвентаризация</strong>
+          <span>Вспомнить, что уже есть, а что пора выбросить</span>
+        </div>
+        <div class="iceberg-item">
+          <strong>Проектирование</strong>
+          <span>Придумать блюдо, которое съедят все, и под которое есть продукты</span>
+        </div>
+        <div class="iceberg-item">
+          <strong>Логистика</strong>
+          <span>Составить список покупок так, чтобы не пришлось бежать за забытым соевым соусом</span>
+        </div>
+        <div class="iceberg-item">
+          <strong>Утилизация</strong>
+          <span>Придумать, куда деть остатки продуктов от одного блюда, чтобы они не сгнили</span>
+        </div>
+      </div>
+
+      <p class="iceberg-cta">Set-up забирает этот менеджмент на себя. Мы не просто даём рецепты — мы даём «кулинарный навигатор», который уже просчитал маршрут. Вы просто заходите на кухню и наслаждаетесь результатом.</p>
     </div>
   </div>
 </section>
